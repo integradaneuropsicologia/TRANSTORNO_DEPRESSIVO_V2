@@ -372,258 +372,1081 @@ const SCALE_SCORE_MAPS = {
     /**************************************************************
  * CONFIGURAÇÃO DAS PERGUNTAS (DINÂMICO)
  **************************************************************/
+
 const FORM_QUESTIONS = [
-  
-{
-  name: "1",
-  section: "Depressão — Triagem",
-  type: "radio",
-  text: "Humor deprimido ou perda de interesse por duas semanas ou mais?",
-  options: YNP,
-  scale: "YNP",
-  reverse: false,
-  required: false
-},
-{
-  name: "2",
-  section: "Depressão — Triagem",
-  type: "radio",
-  text: "Os sintomas geram prejuízo em dois ou mais contextos da vida como casa, trabalho ou relações sociais?",
-  options: YNP,
-  scale: "YNP",
-  reverse: false,
-  required: false
-},
+  {
+    name: "1",
+    type: "radio",
+    section: "Depressão — Triagem & História",
+    text: "Nas últimas semanas, você tem se sentido triste, vazio, desanimado, sem esperança ou emocionalmente para baixo na maior parte do tempo?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "2",
+    type: "radio",
+    section: "Depressão — Triagem & História",
+    text: "Nas últimas semanas, você perdeu interesse ou prazer por atividades, pessoas, rotina, lazer ou coisas que antes eram importantes para você?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "3",
+    type: "radio",
+    section: "Depressão — Triagem & História",
+    text: "Você sente que seu humor, energia ou motivação pioraram claramente em relação ao seu funcionamento habitual?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "4",
+    type: "radio",
+    section: "Depressão — Triagem & História",
+    text: "Outras pessoas já perceberam que você está mais triste, isolado, sem energia, irritado, lento ou desanimado?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "5",
+    type: "radio",
+    section: "Depressão — Triagem & História",
+    text: "Esses sintomas têm prejudicado sua vida familiar, social, afetiva, profissional, acadêmica, doméstica ou seu autocuidado?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "3",
-  section: "Depressão — Núcleo",
-  type: "radio",
-  text: "Humor deprimido com sentimentos de tristeza, vazio ou desesperança?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "4",
-  section: "Depressão — Núcleo",
-  type: "radio",
-  text: "Perda de interesse ou prazer nas atividades que antes eram agradáveis?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
+  {
+    name: "6",
+    type: "radio",
+    section: "Depressão — Episódio Depressivo Maior",
+    text: "Você ficou por pelo menos 2 semanas seguidas com humor deprimido, tristeza persistente, vazio emocional ou sensação de desesperança?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "7",
+    type: "radio",
+    section: "Depressão — Episódio Depressivo Maior",
+    text: "Você ficou por pelo menos 2 semanas seguidas com perda importante de interesse ou prazer pelas coisas que normalmente gostava?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "8",
+    type: "radio",
+    section: "Depressão — Episódio Depressivo Maior",
+    text: "Durante esse período, os sintomas estavam presentes na maior parte do dia, quase todos os dias?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "9",
+    type: "radio",
+    section: "Depressão — Episódio Depressivo Maior",
+    text: "Durante esse período, seu funcionamento ficou claramente pior do que antes, mesmo que você tenha tentado manter a rotina?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "5",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Sentimentos de culpa excessiva ou autoacusação?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "6",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Sentimentos de inutilidade ou baixa autoestima?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "7",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Visão negativa persistente sobre o futuro ou desesperança?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "8",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Dificuldade de concentração ou atenção?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "9",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Lentificação psicomotora ou sensação de estar mais lento?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "10",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Agitação psicomotora ou inquietação constante?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "11",
-  section: "Depressão — Cognição & Afeto",
-  type: "radio",
-  text: "Dificuldade em tomar decisões ou tendência a evitar escolhas?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
+  {
+    name: "10",
+    type: "radio",
+    section: "Depressão — Humor Deprimido",
+    text: "Você sente tristeza, vazio, angústia, desesperança ou sensação de que nada vai melhorar?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "11",
+    type: "radio",
+    section: "Depressão — Humor Deprimido",
+    text: "Você chora com facilidade ou sente vontade de chorar mesmo sem conseguir chorar?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "12",
+    type: "radio",
+    section: "Depressão — Humor Deprimido",
+    text: "Você sente que perdeu a esperança no futuro ou que sua vida perdeu sentido?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "13",
+    type: "radio",
+    section: "Depressão — Humor Deprimido",
+    text: "Em vez de tristeza, você percebe irritabilidade persistente, impaciência, mau humor ou explosões emocionais fora do seu padrão?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "12",
-  section: "Depressão — Sono",
-  type: "radio",
-  text: "Dificuldade para iniciar o sono?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "13",
-  section: "Depressão — Sono",
-  type: "radio",
-  text: "Acorda frequentemente durante a noite?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "14",
-  section: "Depressão — Sono",
-  type: "radio",
-  text: "Desperta muito cedo pela manhã e não consegue voltar a dormir?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "15",
-  section: "Depressão — Sono",
-  type: "radio",
-  text: "Dormir excessivamente ou apresentar sonolência diurna?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
+  {
+    name: "14",
+    type: "radio",
+    section: "Depressão — Perda de Interesse/Prazer",
+    text: "Você deixou de sentir prazer em atividades que antes eram agradáveis, como lazer, convivência, trabalho, estudos, sexo, hobbies ou planos pessoais?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "15",
+    type: "radio",
+    section: "Depressão — Perda de Interesse/Prazer",
+    text: "Você sente que faz as coisas no automático, sem envolvimento, entusiasmo ou satisfação?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "16",
+    type: "radio",
+    section: "Depressão — Perda de Interesse/Prazer",
+    text: "Você evita encontrar pessoas, sair, conversar ou participar de atividades porque nada parece valer o esforço?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "17",
+    type: "radio",
+    section: "Depressão — Perda de Interesse/Prazer",
+    text: "Você sente que perdeu a capacidade de se alegrar, se divertir ou se conectar emocionalmente com momentos positivos?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "16",
-  section: "Depressão — Apetite & Peso",
-  type: "radio",
-  text: "Redução de apetite ou perda de peso?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "17",
-  section: "Depressão — Apetite & Peso",
-  type: "radio",
-  text: "Aumento de apetite ou ganho de peso?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
+  {
+    name: "18",
+    type: "radio",
+    section: "Depressão — Sono",
+    text: "Você tem dificuldade para dormir, demora para pegar no sono ou acorda várias vezes durante a noite?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "19",
+    type: "radio",
+    section: "Depressão — Sono",
+    text: "Você acorda muito cedo e não consegue voltar a dormir, mesmo ainda se sentindo cansado?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "20",
+    type: "radio",
+    section: "Depressão — Sono",
+    text: "Você tem dormido muito mais do que o habitual, com dificuldade de levantar ou vontade de passar grande parte do dia na cama?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "21",
+    type: "radio",
+    section: "Depressão — Sono",
+    text: "Mesmo dormindo, você acorda sem descanso, sem energia ou com sensação de cansaço persistente?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "18",
-  section: "Depressão — Energia",
-  type: "radio",
-  text: "Fadiga ou sensação constante de falta de energia?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
+  {
+    name: "22",
+    type: "radio",
+    section: "Depressão — Apetite e Peso",
+    text: "Você perdeu apetite, sente pouca fome ou precisa se forçar a comer?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "23",
+    type: "radio",
+    section: "Depressão — Apetite e Peso",
+    text: "Você passou a comer muito mais do que o habitual, especialmente por ansiedade, vazio, tristeza ou tentativa de aliviar sofrimento?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "24",
+    type: "radio",
+    section: "Depressão — Apetite e Peso",
+    text: "Você teve perda ou ganho de peso importante sem estar tentando mudar o peso de propósito?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "19",
-  section: "Depressão — Risco",
-  type: "radio",
-  text: "Pensamentos de morte ou sensação de que seria melhor não existir?",
-  options: YNP,
-  scale: "YNP",
-  reverse: false,
-  required: false
-},
-{
-  name: "20",
-  section: "Depressão — Risco",
-  type: "radio",
-  text: "Pensamentos suicidas sem plano específico?",
-  options: YNP,
-  scale: "YNP",
-  reverse: false,
-  required: false
-},
-{
-  name: "21",
-  section: "Depressão — Risco",
-  type: "radio",
-  text: "Planejamento ou tentativa anterior de autoagressão?",
-  options: YNP,
-  scale: "YNP",
-  reverse: false,
-  required: false
-},
+  {
+    name: "25",
+    type: "radio",
+    section: "Depressão — Energia e Fadiga",
+    text: "Você se sente sem energia, cansado, pesado ou esgotado mesmo para tarefas simples?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "26",
+    type: "radio",
+    section: "Depressão — Energia e Fadiga",
+    text: "Atividades básicas, como tomar banho, arrumar a casa, responder mensagens, trabalhar ou estudar, parecem exigir um esforço muito maior do que antes?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "27",
+    type: "radio",
+    section: "Depressão — Energia e Fadiga",
+    text: "Você sente que sua disposição caiu a ponto de evitar compromissos, responsabilidades ou autocuidado?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
 
-{
-  name: "22",
-  section: "Depressão — Funcionamento",
-  type: "radio",
-  text: "Queda de produtividade no trabalho ou estudos?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "23",
-  section: "Depressão — Funcionamento",
-  type: "radio",
-  text: "Dificuldade para manter rotinas domésticas ou autocuidado?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-},
-{
-  name: "24",
-  section: "Depressão — Funcionamento",
-  type: "radio",
-  text: "Isolamento social ou afastamento de contatos?",
-  options: FREQ5,
-  scale: "FREQ5",
-  reverse: false,
-  required: false
-}
+  {
+    name: "28",
+    type: "radio",
+    section: "Depressão — Culpa e Autoestima",
+    text: "Você sente culpa excessiva, mesmo por coisas pequenas, antigas ou fora do seu controle?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "29",
+    type: "radio",
+    section: "Depressão — Culpa e Autoestima",
+    text: "Você se sente inútil, fracassado, sem valor, insuficiente ou como se fosse um peso para os outros?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "30",
+    type: "radio",
+    section: "Depressão — Culpa e Autoestima",
+    text: "Você se critica de forma dura, como se não merecesse ajuda, cuidado, afeto ou melhora?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "31",
+    type: "radio",
+    section: "Depressão — Culpa e Autoestima",
+    text: "Você interpreta erros, dificuldades ou conflitos como prova de que você é incapaz, ruim, fraco ou sem valor?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
 
+  {
+    name: "32",
+    type: "radio",
+    section: "Depressão — Cognição",
+    text: "Você tem dificuldade para se concentrar, acompanhar conversas, ler, estudar, trabalhar ou terminar tarefas?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "33",
+    type: "radio",
+    section: "Depressão — Cognição",
+    text: "Você sente que sua memória piorou, esquecendo compromissos, recados, tarefas ou informações recentes?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "34",
+    type: "radio",
+    section: "Depressão — Cognição",
+    text: "Você tem dificuldade para tomar decisões simples, como responder mensagens, escolher algo, resolver problemas ou iniciar tarefas?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "35",
+    type: "radio",
+    section: "Depressão — Cognição",
+    text: "Você sente que seu pensamento está mais lento, travado, confuso ou pesado do que o habitual?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "36",
+    type: "radio",
+    section: "Depressão — Alterações Psicomotoras",
+    text: "Você percebe que está mais lento para falar, andar, pensar, responder ou realizar atividades do dia a dia?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "37",
+    type: "radio",
+    section: "Depressão — Alterações Psicomotoras",
+    text: "Outras pessoas já perceberam que você está mais lento, parado, abatido, com pouca expressão ou com movimentos reduzidos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "38",
+    type: "radio",
+    section: "Depressão — Alterações Psicomotoras",
+    text: "Você sente agitação interna, inquietação, incapacidade de relaxar ou necessidade de se mexer mesmo estando sem energia?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "39",
+    type: "radio",
+    section: "Depressão — Alterações Psicomotoras",
+    text: "Outras pessoas já perceberam que você está mais agitado, inquieto, andando de um lado para outro ou incapaz de ficar parado?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "40",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Você tem pensamentos de que seria melhor não acordar, desaparecer ou deixar de existir?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "41",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Você tem pensamentos de morte ou ideias de que a vida não vale mais a pena?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "42",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Você já pensou em se matar, mesmo que não tenha contado para ninguém?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "43",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Você já fez plano, separou meios, escreveu mensagem, pesquisou formas ou se preparou para uma tentativa de suicídio?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "44",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Você já tentou suicídio ou fez algo com intenção de tirar a própria vida?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "45",
+    type: "radio",
+    section: "Depressão — Pensamentos de Morte e Suicídio",
+    text: "Atualmente, existe risco de você se machucar, tentar suicídio ou agir contra a própria vida?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "46",
+    type: "radio",
+    section: "Depressão — Prejuízo Funcional",
+    text: "A tristeza, desânimo ou perda de interesse prejudica seu trabalho, estudos, família, vida social, relacionamentos ou autocuidado?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "47",
+    type: "radio",
+    section: "Depressão — Prejuízo Funcional",
+    text: "Você deixou de cumprir tarefas, compromissos, responsabilidades ou cuidados pessoais por causa dos sintomas depressivos?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "48",
+    type: "radio",
+    section: "Depressão — Prejuízo Funcional",
+    text: "Você tem se isolado, evitado contato com pessoas ou reduzido muito sua participação na vida familiar/social?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "49",
+    type: "radio",
+    section: "Depressão — Prejuízo Funcional",
+    text: "Você sente que está apenas sobrevivendo ou funcionando no limite, mesmo quando aparentemente mantém parte da rotina?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "50",
+    type: "radio",
+    section: "Depressão — Transtorno Depressivo Persistente",
+    text: "Você sente humor deprimido, desânimo ou tristeza na maior parte dos dias há pelo menos 2 anos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "51",
+    type: "radio",
+    section: "Depressão — Transtorno Depressivo Persistente",
+    text: "Nos últimos 2 anos, você passou poucos períodos totalmente bem, sem sintomas depressivos, por mais de 2 meses seguidos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "52",
+    type: "radio",
+    section: "Depressão — Transtorno Depressivo Persistente",
+    text: "Há muito tempo você sente baixa energia, baixa autoestima, desesperança, dificuldade de concentração, alterações de sono ou alterações de apetite junto com humor deprimido?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "53",
+    type: "radio",
+    section: "Depressão — Transtorno Depressivo Persistente",
+    text: "Você sente que sempre foi uma pessoa mais desanimada, pessimista, sem energia ou com humor baixo por longos períodos da vida?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "54",
+    type: "radio",
+    section: "Depressão — Transtorno Depressivo Persistente",
+    text: "Além desse humor deprimido crônico, você também teve fases mais intensas que pareciam episódios depressivos maiores?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "55",
+    type: "radio",
+    section: "Depressão — Curso e Recorrência",
+    text: "Você já teve mais de um episódio depressivo ao longo da vida, com períodos de melhora entre eles?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "56",
+    type: "radio",
+    section: "Depressão — Curso e Recorrência",
+    text: "Esses episódios depressivos costumam voltar em fases de estresse, perda, conflitos, sobrecarga, mudanças de vida ou problemas de saúde?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "57",
+    type: "radio",
+    section: "Depressão — Curso e Recorrência",
+    text: "Você já teve períodos em que se sentiu totalmente recuperado entre episódios depressivos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "58",
+    type: "radio",
+    section: "Depressão — Curso e Recorrência",
+    text: "Seus sintomas depressivos seguem padrão sazonal, piorando em determinadas épocas do ano?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "59",
+    type: "radio",
+    section: "Depressão — Características Ansiosas",
+    text: "Junto com a depressão, você sente ansiedade intensa, tensão, preocupação, medo de algo ruim acontecer ou sensação de estar no limite?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "60",
+    type: "radio",
+    section: "Depressão — Características Ansiosas",
+    text: "A ansiedade piora sua tristeza, sono, apetite, concentração, irritabilidade ou sensação de incapacidade?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "61",
+    type: "radio",
+    section: "Depressão — Características Melancólicas",
+    text: "Você sente uma perda quase completa de prazer, mesmo quando acontecem coisas positivas ou recebe apoio de pessoas próximas?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "62",
+    type: "radio",
+    section: "Depressão — Características Melancólicas",
+    text: "Você percebe que a depressão fica pior pela manhã, com despertar precoce, lentidão, culpa intensa ou perda importante de apetite?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "63",
+    type: "radio",
+    section: "Depressão — Características Melancólicas",
+    text: "Mesmo diante de algo bom, você quase não consegue sentir melhora temporária no humor?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "64",
+    type: "radio",
+    section: "Depressão — Características Atípicas",
+    text: "Seu humor melhora temporariamente quando algo positivo acontece, mesmo que depois volte a piorar?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "65",
+    type: "radio",
+    section: "Depressão — Características Atípicas",
+    text: "Durante a depressão, você sente aumento de sono, aumento de apetite, sensação de peso nos braços/pernas ou sensibilidade intensa à rejeição?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "66",
+    type: "radio",
+    section: "Depressão — Sintomas Psicóticos",
+    text: "Durante fases depressivas, você já acreditou com muita convicção que era culpado, condenado, arruinado, inútil, doente ou merecedor de punição, mesmo sem evidências claras?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "67",
+    type: "radio",
+    section: "Depressão — Sintomas Psicóticos",
+    text: "Durante fases depressivas, você já ouviu vozes, viu coisas ou percebeu mensagens que outras pessoas não percebiam?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "68",
+    type: "radio",
+    section: "Depressão — Sintomas Psicóticos",
+    text: "Essas vozes, visões ou crenças estranhas aparecem somente durante fases depressivas intensas?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "69",
+    type: "radio",
+    section: "Depressão — Catatonia",
+    text: "Durante fases depressivas, você já ficou muito parado, sem falar, sem reagir ou quase imóvel por longos períodos?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "70",
+    type: "radio",
+    section: "Depressão — Catatonia",
+    text: "Durante fases depressivas, outras pessoas já disseram que você parecia travado, congelado, rígido, desconectado ou sem resposta ao ambiente?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "71",
+    type: "radio",
+    section: "Depressão — Periparto",
+    text: "Se você já gestou ou teve parto, os sintomas depressivos começaram durante a gestação ou nas semanas/meses após o parto?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "72",
+    type: "radio",
+    section: "Depressão — Periparto",
+    text: "Após parto ou durante gestação, você teve tristeza intensa, perda de prazer, culpa, medo de não dar conta, pensamentos assustadores ou dificuldade de vínculo com o bebê?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "73",
+    type: "radio",
+    section: "Depressão — Disforia Pré-Menstrual",
+    text: "Se você menstrua, seus sintomas de tristeza, irritabilidade, ansiedade, instabilidade emocional ou desânimo pioram claramente na semana antes da menstruação?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "74",
+    type: "radio",
+    section: "Depressão — Disforia Pré-Menstrual",
+    text: "Se você menstrua, esses sintomas melhoram poucos dias após o início da menstruação e ficam bem menores ou ausentes depois?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "75",
+    type: "radio",
+    section: "Depressão — Disforia Pré-Menstrual",
+    text: "Se você menstrua, esses sintomas pré-menstruais causam prejuízo importante em relacionamentos, trabalho, estudos, rotina ou autocuidado?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "76",
+    type: "radio",
+    section: "Depressão — Desregulação Disruptiva do Humor",
+    text: "Desde a infância ou adolescência, há irritabilidade persistente quase todos os dias, com explosões de raiva intensas e desproporcionais?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "77",
+    type: "radio",
+    section: "Depressão — Desregulação Disruptiva do Humor",
+    text: "As explosões de raiva acontecem várias vezes por semana e são maiores do que o esperado para a situação ou idade?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "78",
+    type: "radio",
+    section: "Depressão — Desregulação Disruptiva do Humor",
+    text: "Entre as explosões, o humor permanece irritado ou raivoso na maior parte do tempo, em vez de voltar ao normal?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "79",
+    type: "radio",
+    section: "Depressão — Diferencial com Bipolaridade",
+    text: "Você já teve fases de pelo menos 4 dias seguidos com humor muito elevado ou irritado, energia aumentada, fala acelerada, menor necessidade de sono e impulsividade fora do seu padrão?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "80",
+    type: "radio",
+    section: "Depressão — Diferencial com Bipolaridade",
+    text: "Você já teve uma fase de pelo menos 7 dias com aceleração, euforia ou irritabilidade intensa, comportamentos de risco, grandiosidade ou prejuízo importante?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "81",
+    type: "radio",
+    section: "Depressão — Diferencial com Bipolaridade",
+    text: "Alguma fase de aceleração, euforia ou irritabilidade exigiu atendimento de urgência, internação ou envolveu sintomas psicóticos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "82",
+    type: "radio",
+    section: "Depressão — Diferencial com Bipolaridade",
+    text: "Você já teve piora de agitação, impulsividade, insônia, euforia ou irritabilidade após iniciar antidepressivo?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "83",
+    type: "radio",
+    section: "Depressão — Diferencial com Luto",
+    text: "Os sintomas depressivos começaram após a morte de alguém importante, separação, perda significativa ou mudança dolorosa de vida?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "84",
+    type: "radio",
+    section: "Depressão — Diferencial com Luto",
+    text: "Sua tristeza aparece em ondas ligadas à saudade e lembranças da perda, com momentos em que ainda consegue sentir conexão, afeto ou sentido?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "85",
+    type: "radio",
+    section: "Depressão — Diferencial com Luto",
+    text: "Mesmo após a perda, você sente culpa intensa, inutilidade, desesperança persistente, desejo de morrer ou incapacidade prolongada de funcionar?",
+    options: SEVER4,
+    scale: "SEVER4",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "86",
+    type: "radio",
+    section: "Depressão — Diferencial com Trauma",
+    text: "Os sintomas depressivos começaram ou pioraram depois de trauma, violência, abuso, acidente, ameaça, humilhação intensa ou situação de medo extremo?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "87",
+    type: "radio",
+    section: "Depressão — Diferencial com Trauma",
+    text: "Além da tristeza, você tem lembranças intrusivas, pesadelos, flashbacks, evitação, hiperalerta ou reações corporais ligadas ao trauma?",
+    options: FREQ5,
+    scale: "FREQ5",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "88",
+    type: "radio",
+    section: "Depressão — Diferencial com Ansiedade",
+    text: "Seu sofrimento principal é preocupação excessiva, medo, tensão ou sensação de ameaça, mais do que tristeza persistente ou perda de prazer?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "89",
+    type: "radio",
+    section: "Depressão — Diferencial com Ansiedade",
+    text: "Quando sua ansiedade diminui, seu humor, energia e motivação melhoram de forma importante?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "90",
+    type: "radio",
+    section: "Depressão — Diferencial com TDAH",
+    text: "Suas dificuldades de atenção, organização, procrastinação ou baixa produtividade existem desde a infância, mesmo fora de fases depressivas?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "91",
+    type: "radio",
+    section: "Depressão — Diferencial com TDAH",
+    text: "Quando seu humor melhora, ainda permanecem desatenção, impulsividade, desorganização ou dificuldade crônica de concluir tarefas?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "92",
+    type: "radio",
+    section: "Depressão — Diferencial com Neurocognitivo",
+    text: "Sua memória, atenção ou raciocínio pioraram de forma progressiva e persistente, mesmo quando o humor não está tão deprimido?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "93",
+    type: "radio",
+    section: "Depressão — Diferencial com Neurocognitivo",
+    text: "Outras pessoas percebem perda progressiva de memória, orientação, linguagem, julgamento ou autonomia maior do que você percebe?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "94",
+    type: "radio",
+    section: "Depressão — Substâncias e Medicamentos",
+    text: "Os sintomas depressivos começaram durante ou logo após uso de álcool, cannabis, cocaína, estimulantes, calmantes, opioides ou outras substâncias?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "95",
+    type: "radio",
+    section: "Depressão — Substâncias e Medicamentos",
+    text: "Os sintomas depressivos começaram após início, aumento, retirada ou troca de medicação, como antidepressivos, corticoides, anticoncepcionais, sedativos, estimulantes ou outras medicações?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "96",
+    type: "radio",
+    section: "Depressão — Substâncias e Medicamentos",
+    text: "Quando você reduz ou suspende álcool, drogas ou medicações que afetam o humor, os sintomas depressivos melhoram claramente?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "97",
+    type: "radio",
+    section: "Depressão — Condições Médicas",
+    text: "Os sintomas depressivos começaram junto com doença clínica, dor crônica, alteração hormonal, doença neurológica, infecção, câncer, AVC, Parkinson, hipotireoidismo ou outra condição médica?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "98",
+    type: "radio",
+    section: "Depressão — Condições Médicas",
+    text: "Você apresenta sintomas físicos importantes junto com a depressão, como dor persistente, fadiga extrema, alterações hormonais, perda de peso, fraqueza, tontura ou alterações neurológicas?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "99",
+    type: "radio",
+    section: "Depressão — Condições Médicas",
+    text: "Quando a condição médica piora, seus sintomas depressivos também pioram de forma clara?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "100",
+    type: "radio",
+    section: "Depressão — História Familiar",
+    text: "Algum familiar biológico próximo já teve depressão, transtorno bipolar, tentativa de suicídio, internação psiquiátrica ou uso de medicação para humor?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "101",
+    type: "radio",
+    section: "Depressão — História Familiar",
+    text: "Algum familiar biológico próximo já apresentou fases de euforia, aceleração, pouca necessidade de sono, impulsividade ou internação por alteração de humor?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+
+  {
+    name: "102",
+    type: "radio",
+    section: "Depressão — Proteção e Recursos",
+    text: "Você tem pessoas, fé, responsabilidades, planos, vínculos, tratamento ou motivos que ajudam a impedir que você desista da vida?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "103",
+    type: "radio",
+    section: "Depressão — Proteção e Recursos",
+    text: "Você consegue pedir ajuda quando percebe piora do humor, pensamentos de morte ou risco de se machucar?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  },
+  {
+    name: "104",
+    type: "radio",
+    section: "Depressão — Proteção e Recursos",
+    text: "Você está em acompanhamento psicológico, psiquiátrico, médico ou tem rede de apoio ativa para lidar com os sintomas depressivos?",
+    options: YNP,
+    scale: "YNP",
+    reverse: false,
+    required: false
+  }
 ];
-
+    
 const INDICATORS_CONFIG = {};
 
     /**************************************************************
